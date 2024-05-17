@@ -82,4 +82,4 @@ jobs:
           path: ./iso
 
       - name: Show downloaded file
-        run: ls -la ./iso/test-file.txt
+        run: ls -la ./iso/
