@@ -3,7 +3,7 @@ name: Build
 on: [push, pull_request]
 
 jobs:
-  run-alpine:
+  build:
     runs-on: ubuntu-latest
     container:
       image: alpine:latest
@@ -11,24 +11,25 @@ jobs:
     - name: Checkout repository
       uses: actions/checkout@v2
       
-    - name: Install alpine-sdk
+    - name: Install alpine-sdk and other needed packages
       run: |
         apk update
-        apk add alpine-sdk
+        apk add alpine-sdk alpine-conf syslinux xorriso squashfs-tools grub grub-efi doas
 
-    - name: create working directories
+    - name: Create signing keys
       run: |
-        mkdir -p /github/workspace/alpine/{packages,configs,iso}
+        abuild-keygen -i -a
 
-    - name: Add bash
+    - name: Clone aports repo
       run: |
-        cd /github/workspace/alpine/packages
-        abuild-apkbuild bash
+        git clone --depth=1 https://gitlab.alpinelinux.org/alpine/aports.git
 
-    - name: Build packages
+    - name: Run mkimage
       run: |
-        abuild -r
-
-    - name: Build iso image
-      run: |
-        mkimage -f /github/workspacemkimage.conf -t iso /github/workspace/alpine/iso/my-custom-alpine.iso
+        cd ~/aports/scripts
+        ./mkimage.sh  \
+        --profile custom \
+--arch x86_64 \
+--repository http://uk.alpinelinux.org/alpine/latest-stable/main \
+--outdir /root/iso/ \
+--tag BADGE
