@@ -39,6 +39,10 @@ jobs:
       run: |
         cp ~/.abuild/*.pub /etc/apk/keys/
 
+    - name: List /etc/apk/keys
+      run: |
+        ls -la /etc/apk/keys/
+
     - name: Install git
       run: |
         apk update
@@ -47,3 +51,14 @@ jobs:
     - name: Clone aports repo
       run: |
         git clone --depth=1 https://gitlab.alpinelinux.org/alpine/aports.git
+
+    - name: Create new, big tmp directory
+      run: |
+        mkdir -pv ~/tmp
+        export TMPDIR=~/tmp
+        echo "export TMPDIR=~/tmp" >> ~/.profile
+
+    - name: Conf PROFILENAME
+      run: |
+        export PROFILENAME=esxi-passwordreset
+        echo "export PROFILENAME=esxi-passwordreset" >> ~/.profile
