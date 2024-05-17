@@ -56,13 +56,6 @@ tty2::respawn:/sbin/getty 38400 tty2
 ttyS0::respawn:/sbin/getty -L 0 ttyS0 vt100
 EOF
 
-makefile root:root 0755 "$tmp"/etc/.profile <<EOF
-#!/bin/sh -e
-
-setup-devd -C mdev
-startx
-EOF
-
 makefile root:root 0755 "$tmp"/etc/setup-script <<EOF
 INTERFACESOPTS="auto lo
 iface lo inet loopback
