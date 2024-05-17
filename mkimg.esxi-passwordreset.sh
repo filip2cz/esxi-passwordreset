@@ -41,5 +41,5 @@ profile_saigo() {
 		done
 	done
 	apks="$apks linux-firmware linux-firmware-none"
-	apkovl="genapkovl-saigo.sh"
+	apkovl="genapkovl-esxi-passwordreset.sh"
 }
