@@ -28,9 +28,9 @@ mkdir -p "$tmp"/etc/apk
 mkdir -p "$tmp"/etc/network
 mkdir -p "$tmp"/root
 
-cp ~/aports/scripts/wallpaper.png "$tmp"/etc/wallpaper.png
-cp ~/aports/scripts/tint2.tar.gz "$tmp"/etc/tint2.tar.gz
-cp ~/aports/scripts/openbox.tar.gz "$tmp"/etc/openbox.tar.gz
+# cp ~/aports/scripts/wallpaper.png "$tmp"/etc/wallpaper.png
+# cp ~/aports/scripts/tint2.tar.gz "$tmp"/etc/tint2.tar.gz
+# cp ~/aports/scripts/openbox.tar.gz "$tmp"/etc/openbox.tar.gz
 
 makefile root:root 0644 "$tmp"/etc/hostname <<EOF
 $HOSTNAME
