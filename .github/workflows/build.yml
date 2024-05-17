@@ -11,14 +11,23 @@ jobs:
     - name: Checkout repository
       uses: actions/checkout@v2
 
+    -name: List files
+      run: |
+        ls -la /
+
     - name: Install alpine-sdk and other needed packages
       run: |
         apk update
         apk add alpine-sdk alpine-conf syslinux xorriso squashfs-tools grub grub-efi doas mtools dosfstools grub-efi
+
+    - name: Install git
+      run: |
+        apk update
+        apk add git
+
     - name: Create signing keys
       run: |
-        chmod +x /github/workspace/abuild-keygen.exp
-        /github/workspace/abuild-keygen.exp
+        echo | abuild-keygen -i -a
 
     - name: Clone aports repo
       run: |
