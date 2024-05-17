@@ -16,9 +16,9 @@ jobs:
         apk update
         apk add alpine-sdk alpine-conf syslinux xorriso squashfs-tools grub grub-efi doas mtools dosfstools grub-efi
 
-    - name: Get username
+    - name: Add user into abuild group
       run: |
-        whoami
+        usermod -a -G abuild root
 
     - name: Clone aports repo
       run: |
