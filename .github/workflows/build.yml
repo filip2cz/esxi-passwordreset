@@ -16,10 +16,6 @@ jobs:
         apk update
         apk add alpine-sdk alpine-conf syslinux xorriso squashfs-tools grub grub-efi doas
 
-    - name: Create signing keys
-      run: |
-        abuild-keygen -i -a
-
     - name: Clone aports repo
       run: |
         git clone --depth=1 https://gitlab.alpinelinux.org/alpine/aports.git
