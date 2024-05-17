@@ -25,14 +25,20 @@ jobs:
         apk update
         apk add alpine-sdk alpine-conf syslinux xorriso squashfs-tools grub grub-efi doas mtools dosfstools grub-efi
 
+    - name: Install expect
+      run: |
+        apk update
+        apk add expect
+
+    - name: Create signing keys
+      run: |
+        chmod +x abuild-keygen.exp
+        ./abuild-keygen.exp
+
     - name: Install git
       run: |
         apk update
         apk add git
-
-    - name: Create signing keys
-      run: |
-        echo | doas abuild-keygen -i -a
 
     - name: Clone aports repo
       run: |
