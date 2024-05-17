@@ -86,7 +86,7 @@ cp /etc/.profile /root/
 EOF
 
 makefile root:root 0644 "$tmp"/etc/motd <<EOF
-Welcome to SaigOS!
+Welcome to esxi-passwordreset!
 EOF
 
 rc_add devfs sysinit
