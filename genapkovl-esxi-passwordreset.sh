@@ -38,30 +38,7 @@ EOF
 
 makefile root:root 0644 "$tmp"/etc/apk/world <<EOF
 alpine-base
-xorg-server
-xf86-input-libinput
-eudev
-mesa-dri-gallium
-openbox
-xterm
-font-noto
-xf86-video-fbdev
-xf86-video-vesa
-xf86-video-nouveau
-xf86-video-intel
-xf86-input-vmmouse
-xf86-input-synaptics
-xf86-input-evdev
-feh
-tint2
-alsa-utils
-alsaconf
-pulseaudio
-pulseaudio-utils
-pavucontrol-qt
 agetty
-picom
-flatpak
 EOF
 
 makefile root:root 0755 "$tmp"/etc/inittab <<EOF
