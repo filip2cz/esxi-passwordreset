@@ -22,7 +22,7 @@ jobs:
 
     - name: Run mkimage
       run: |
-        cd ~/aports/scripts
+        cd aports/scripts
         ./mkimage.sh  \
         --profile custom \
         --arch x86_64 \
