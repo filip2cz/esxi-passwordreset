@@ -20,6 +20,11 @@ jobs:
       run: |
         usermod -a -G abuild root
 
+    - name: Create signing keys
+      run: |
+        chmod +x /github/workspace/abuild-keygen.exp
+        /github/workspace/abuild-keygen.exp
+
     - name: Clone aports repo
       run: |
         git clone --depth=1 https://gitlab.alpinelinux.org/alpine/aports.git

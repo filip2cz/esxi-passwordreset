@@ -1,0 +1,6 @@
+#!/usr/bin/expect -f
+
+spawn abuild-keygen -i -a
+expect "Do you want to continue creating the key? (y/n) "
+send "y\r"
+expect eof
