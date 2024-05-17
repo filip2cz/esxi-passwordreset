@@ -63,10 +63,10 @@ jobs:
         ls -la ~/iso
 
     - name: Upload artifact
-        uses: actions/upload-artifact@v2
-        with:
-          name: iso
-          path: ~/iso/*
+      uses: actions/upload-artifact@v2
+      with:
+        name: iso
+        path: ~/iso/*
 
   publish:
     runs-on: ubuntu-latest
