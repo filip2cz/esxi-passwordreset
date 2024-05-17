@@ -35,6 +35,10 @@ jobs:
         chmod +x abuild-keygen.exp
         ./abuild-keygen.exp
 
+    - name: Copy public key into /etc/apk/keys
+      run: |
+        cp ~/.abuild/*.pub /etc/apk/keys/
+
     - name: Install git
       run: |
         apk update
