@@ -62,11 +62,11 @@ iface lo inet loopback
 
 auto eth0
 iface eth0 inet dhcp
-    hostname saigo
+    hostname esxi-passwordreset
 "
 
 KEYMAPOPTS="us us"
-HOSTNAMEOPTS="-n saigo"
+HOSTNAMEOPTS="-n esxi-passwordreset"
 DNSOPTS="8.8.8.8"
 TIMEZONEOPTS="-z UTC"
 PROXYOPTS="none"
