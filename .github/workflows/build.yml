@@ -54,6 +54,8 @@ jobs:
 
     - name: Copy config files and scripts into aports/scripts
       run: |
+        chmod +x mkimg.esxipasswordreset.sh
+        chmod +x genapkovl-esxipasswordreset.sh
         cp mkimg.esxipasswordreset.sh ./aports/scripts/
         cp genapkovl-esxipasswordreset.sh ./aports/scripts/
 
