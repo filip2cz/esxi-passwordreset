@@ -29,7 +29,7 @@ jobs:
         cd ~/aports/scripts
         ./mkimage.sh  \
         --profile custom \
---arch x86_64 \
---repository http://uk.alpinelinux.org/alpine/latest-stable/main \
---outdir /root/iso/ \
---tag BADGE
+        --arch x86_64 \
+        --repository http://uk.alpinelinux.org/alpine/latest-stable/main \
+        --outdir /root/iso/ \
+        --tag BADGE
