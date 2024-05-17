@@ -16,9 +16,9 @@ jobs:
         pwd
         ls -la
 
-    - name: List files /github
+    - name: List files /__w
       run: |
-        ls -la /github
+        ls -la /__w
 
     - name: Install alpine-sdk and other needed packages
       run: |
