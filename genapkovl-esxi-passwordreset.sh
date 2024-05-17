@@ -56,14 +56,6 @@ tty2::respawn:/sbin/getty 38400 tty2
 ttyS0::respawn:/sbin/getty -L 0 ttyS0 vt100
 EOF
 
-makefile root:root 0755 "$tmp"/etc/.xinitrc <<EOF
-pulseaudio --daemon --system &
-feh --bg-fill /etc/wallpaper.png &
-picom -c &
-tint2 &
-exec openbox-session
-EOF
-
 makefile root:root 0755 "$tmp"/etc/.profile <<EOF
 #!/bin/sh -e
 
