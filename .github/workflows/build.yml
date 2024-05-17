@@ -1,0 +1,17 @@
+name: Build
+
+on: [push, pull_request]
+
+jobs:
+  run-alpine:
+    runs-on: ubuntu-latest
+    container:
+      image: alpine:latest
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+      
+    - name: Run a script
+      run: |
+        apk add neofetch
+        neofetch
