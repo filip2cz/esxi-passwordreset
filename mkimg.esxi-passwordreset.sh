@@ -31,16 +31,6 @@ profile_saigo() {
 		e2fsprogs e2fsprogs-extra efibootmgr f2fs-tools
 		grub-bios grub-efi lvm2 lz4 mdadm mkinitfs mtools nfs-utils
 		parted rsync sfdisk syslinux util-linux xfsprogs zstd zfs
-
-		xorg-server xf86-input-libinput eudev mesa-dri-gallium
-		openbox xterm font-noto
-		xf86-video-fbdev xf86-video-vesa xf86-video-nouveau
-		xf86-input-synaptics xf86-input-vmmouse xf86-input-evdev
-		xf86-video-intel sddm
-		alsa-utils alsaconf pulseaudio pulseaudio-utils
-		pavucontrol-qt
-
-		feh tint2 picom flatpak
 		"
 
 	local _k _a
