@@ -11,7 +11,24 @@ jobs:
     - name: Checkout repository
       uses: actions/checkout@v2
       
-    - name: Run a script
+    - name: Install alpine-sdk
       run: |
-        apk add neofetch
-        neofetch
+        apk update
+        apk add alpine-sdk
+
+    - name: create working directories
+      run: |
+        mkdir -p /github/workspace/alpine/{packages,configs,iso}
+
+    - name: Add bash
+      run: |
+        cd /github/workspace/alpine/packages
+        abuild-apkbuild bash
+
+    - name: Build packages
+      run: |
+        abuild -r
+
+    - name: Build iso image
+      run: |
+        mkimage -f /github/workspacemkimage.conf -t iso /github/workspace/alpine/iso/my-custom-alpine.iso
