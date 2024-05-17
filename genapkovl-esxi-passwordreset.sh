@@ -1,6 +1,6 @@
 #!/bin/sh -e
 
-HOSTNAME="esxi-passwordreset"
+HOSTNAME="esxipasswordreset"
 
 cleanup() {
 	rm -rf "$tmp"
@@ -62,11 +62,11 @@ iface lo inet loopback
 
 auto eth0
 iface eth0 inet dhcp
-    hostname esxi-passwordreset
+    hostname esxipasswordreset
 "
 
 KEYMAPOPTS="us us"
-HOSTNAMEOPTS="-n esxi-passwordreset"
+HOSTNAMEOPTS="-n esxipasswordreset"
 DNSOPTS="8.8.8.8"
 TIMEZONEOPTS="-z UTC"
 PROXYOPTS="none"
@@ -86,7 +86,7 @@ cp /etc/.profile /root/
 EOF
 
 makefile root:root 0644 "$tmp"/etc/motd <<EOF
-Welcome to esxi-passwordreset!
+Welcome to esxipasswordreset!
 EOF
 
 rc_add devfs sysinit

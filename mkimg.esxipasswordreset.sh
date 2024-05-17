@@ -1,6 +1,6 @@
 profile_saigo() {
 	profile_standard
-	profile_abbrev="esxi-passwordreset"
+	profile_abbrev="esxipasswordreset"
 	title="Extended"
 	desc="Most common used packages included.
 		Suitable for routers and servers.
@@ -41,5 +41,5 @@ profile_saigo() {
 		done
 	done
 	apks="$apks linux-firmware linux-firmware-none"
-	apkovl="genapkovl-esxi-passwordreset.sh"
+	apkovl="genapkovl-esxipasswordreset.sh"
 }

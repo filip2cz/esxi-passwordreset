@@ -50,20 +50,20 @@ jobs:
 
     - name: Conf PROFILENAME
       run: |
-        export PROFILENAME=esxi-passwordreset
+        export PROFILENAME=esxipasswordreset
 
     - name: Copy config files and scripts into aports/scripts
       run: |
-        cp mkimg.esxi-passwordreset.sh ./aports/scripts/
-        cp genapkovl-esxi-passwordreset.sh ./aports/scripts/
+        cp mkimg.esxipasswordreset.sh ./aports/scripts/
+        cp genapkovl-esxipasswordreset.sh ./aports/scripts/
 
 
     - name: Build
       run: |
         export TMPDIR=~/tmp
-        export PROFILENAME=esxi-passwordreset
+        export PROFILENAME=esxipasswordreset
         cd ./aports/scripts
-        sh ./mkimage.sh --tag edge --outdir ~/iso --arch x86_64 --repository https://dl-cdn.alpinelinux.org/alpine/edge/main --extra-repository https://dl-cdn.alpinelinux.org/alpine/edge/community --profile esxi-passwordreset
+        sh ./mkimage.sh --tag edge --outdir ~/iso --arch x86_64 --repository https://dl-cdn.alpinelinux.org/alpine/edge/main --extra-repository https://dl-cdn.alpinelinux.org/alpine/edge/community --profile esxipasswordreset
 
     - name: List ~/iso files
       run: |
