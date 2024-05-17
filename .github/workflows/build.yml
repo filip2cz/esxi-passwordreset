@@ -47,12 +47,10 @@ jobs:
       run: |
         mkdir -pv ~/tmp
         export TMPDIR=~/tmp
-        echo "export TMPDIR=~/tmp" >> ~/.profile
 
     - name: Conf PROFILENAME
       run: |
         export PROFILENAME=esxi-passwordreset
-        echo "export PROFILENAME=esxi-passwordreset" >> ~/.profile
 
     - name: Copy config files and scripts into aports/scripts
       run: |
@@ -62,7 +60,8 @@ jobs:
 
     - name: Build
       run: |
-        echo $PROFILENAME
+        export TMPDIR=~/tmp
+        export PROFILENAME=esxi-passwordreset
         cd ./aports/scripts
         sh ./mkimage.sh --tag edge --outdir ~/iso --arch x86_64 --repository https://dl-cdn.alpinelinux.org/alpine/edge/main --extra-repository https://dl-cdn.alpinelinux.org/alpine/edge/community --profile esxi-passwordreset
 
