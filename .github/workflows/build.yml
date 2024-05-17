@@ -13,7 +13,7 @@ jobs:
 
     - name: List files
       run: |
-        ls -la /
+        ls -la /github
 
     - name: Install alpine-sdk and other needed packages
       run: |
@@ -27,7 +27,7 @@ jobs:
 
     - name: Create signing keys
       run: |
-        echo | abuild-keygen -i -a
+        echo | doas abuild-keygen -i -a
 
     - name: Clone aports repo
       run: |
