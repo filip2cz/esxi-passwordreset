@@ -40,4 +40,5 @@ profile_standard() {
 		done
 	done
 	apks="$apks linux-firmware linux-firmware-none"
+	apkovl="genapkovl-standard.sh"
 }
