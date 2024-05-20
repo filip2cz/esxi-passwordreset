@@ -52,7 +52,7 @@ profile_extended() {
 		opennhrp pingu ppp quagga
 		quagga-nhrp rng-tools sntpc socat ssmtp strongswan
 		sysklogd tcpdump tinyproxy unbound
-		wireguard-tools wireless-tools wpa_supplicant zonenotify
+		wireless-tools wpa_supplicant zonenotify
 
 		btrfs-progs cksfv dosfstools cryptsetup
 		e2fsprogs e2fsprogs-extra efibootmgr f2fs-tools
