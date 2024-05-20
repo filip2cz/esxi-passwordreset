@@ -86,12 +86,20 @@ jobs:
           name: iso
           path: ./alpine-standard-edge-x86_64.iso
 
+      - name: List files 1
+        run: |
+          ls -l
+
       - name: Rename iso
         run: |
-          mv /home/runner/work/esxi-passwordreset/esxi-passwordreset/alpine-standard-edge-x86_64.iso /home/runner/work/esxi-passwordreset/esxi-passwordreset/esxi-passwordreset.iso
+          mv alpine-standard-edge-x86_64.iso esxi-passwordreset.iso
+
+      - name: List files 2
+        run: |
+          ls -l
 
       - name: Create new release and upload iso
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          gh release create --draft tmp /home/runner/work/esxi-passwordreset/esxi-passwordreset/esxi-passwordreset.iso
+          gh release create --draft tmp esxi-passwordreset.iso
