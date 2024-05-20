@@ -1,8 +1,6 @@
 profile_standard() {
 	title="Standard"
-	desc="Alpine as it was intended.
-		Just enough to get you started.
-		Network connection is required."
+	desc="ISO for reseting VMware ESXi password easily"
 	profile_base
 	profile_abbrev="std"
 	image_ext="iso"
