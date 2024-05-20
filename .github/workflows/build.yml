@@ -46,6 +46,10 @@ jobs:
         chmod +x ~/esxi-passwordreset/abuild-keygen.exp
         ~/esxi-passwordreset/abuild-keygen.exp
 
+    - name: Copy signing key into /etc/apk/keys
+      run: |
+        cp ~/.abuild/*.rsa.pub /etc/apk/keys/
+
     - name: Create new, big tmp directory
       run: |
         mkdir -pv ~/tmp
