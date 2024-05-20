@@ -25,7 +25,7 @@ jobs:
         apk update
         apk add git
 
-    - name: Clone main repo
+    - name: Clone esxi-passwordreset repo
       run: |
         cd
         git clone https://github.com/filip2cz/esxi-passwordreset.git
@@ -42,9 +42,8 @@ jobs:
 
     - name: Create signing keys
       run: |
-        cd
-        chmod +x ./esxi-passwordreset/abuild-keygen.exp
-        ./esxi-passwordreset/abuild-keygen.exp
+        chmod +x ~/esxi-passwordreset/abuild-keygen.exp
+        ~/esxi-passwordreset/abuild-keygen.exp
 
     - name: Create new, big tmp directory
       run: |
@@ -57,13 +56,13 @@ jobs:
 
     - name: Copy custom build script
       run: |
-        cp ./esxi-passwordreset/mkimg.standard.sh ./aports/scripts/mkimg.standard.sh
+        cp ~/esxi-passwordreset/mkimg.standard.sh ~/aports/scripts/mkimg.standard.sh
 
     - name: Build
       run: |
         export TMPDIR=~/tmp
         export PROFILENAME=standard
-        cd ./aports/scripts
+        cd ~/aports/scripts
         sh ./mkimage.sh --tag edge --outdir ~/iso --arch x86_64 --repository https://dl-cdn.alpinelinux.org/alpine/edge/main --repository https://dl-cdn.alpinelinux.org/alpine/edge/community --profile $PROFILENAME
 
     - name: List ~/iso files
