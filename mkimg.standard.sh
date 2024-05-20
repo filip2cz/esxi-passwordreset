@@ -49,7 +49,7 @@ profile_extended() {
 		igmpproxy ip6tables iproute2 iproute2-qos
 		iptables iputils nftables iw kea ldns-tools links
 		ncurses-terminfo net-snmp net-snmp-tools nrpe nsd
-		opennhrp openvpn pingu ppp quagga
+		opennhrp pingu ppp quagga
 		quagga-nhrp rng-tools sntpc socat ssmtp strongswan
 		sysklogd tcpdump tinyproxy unbound
 		wireguard-tools wireless-tools wpa_supplicant zonenotify
