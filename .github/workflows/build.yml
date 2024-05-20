@@ -53,6 +53,10 @@ jobs:
       run: |
         cp ~/esxi-passwordreset/mkimg.standard.sh ~/aports/scripts/mkimg.standard.sh
 
+    - name: Copy custom genapkovl script
+      run: |
+        cp ~/esxi-passwordreset/genapkovl-standard.sh ~/aports/scripts/genapkovl-standard.sh
+
     - name: Build
       run: |
         export TMPDIR=~/tmp
