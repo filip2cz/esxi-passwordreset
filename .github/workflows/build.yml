@@ -42,6 +42,7 @@ jobs:
 
     - name: Create signing keys
       run: |
+        whoami
         chmod +x ~/esxi-passwordreset/abuild-keygen.exp
         ~/esxi-passwordreset/abuild-keygen.exp
 
