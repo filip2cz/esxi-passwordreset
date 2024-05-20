@@ -84,7 +84,7 @@ jobs:
         uses: actions/download-artifact@v2
         with:
           name: iso
-          path: ./alpine-standard-edge-x86_64.iso
+          path: ./
 
       - name: List files 1
         run: |
@@ -92,7 +92,7 @@ jobs:
 
       - name: Rename iso
         run: |
-          cp /home/runner/work/esxi-passwordreset/esxi-passwordreset/alpine-standard-edge-x86_64.iso ./esxi-passwordreset.iso
+          mv alpine-standard-edge-x86_64.iso ./esxi-passwordreset.iso
 
       - name: List files 2
         run: |
