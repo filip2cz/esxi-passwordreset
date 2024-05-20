@@ -35,20 +35,10 @@ jobs:
         cd
         git clone --depth=1 https://gitlab.alpinelinux.org/alpine/aports.git
 
-    - name: Install expect
-      run: |
-        apk update
-        apk add expect
-
     - name: Create signing keys
       run: |
-        whoami
-        chmod +x ~/esxi-passwordreset/abuild-keygen.exp
+        abuild-keygen -i -a -n
         ~/esxi-passwordreset/abuild-keygen.exp
-
-    - name: Copy signing key into /etc/apk/keys
-      run: |
-        cp ~/.abuild/*.rsa.pub /etc/apk/keys/
 
     - name: Create new, big tmp directory
       run: |
