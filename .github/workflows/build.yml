@@ -86,5 +86,12 @@ jobs:
           name: iso
           path: ./alpine-standard-edge-x86_64.iso
 
-      - name: Show downloaded file
-        run: ls -l
+      - name: Rename iso
+        run: |
+          mv alpine-standard-edge-x86_64.iso esxi-passwordreset.iso
+
+      - name: Create new release and upload iso
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          gh release create --draft tmp ./esxi-passwordreset.iso
