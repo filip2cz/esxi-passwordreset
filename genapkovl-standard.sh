@@ -63,6 +63,4 @@ rc_add mount-ro shutdown
 rc_add killprocs shutdown
 rc_add savecache shutdown
 
-apk install vim
-
 tar -c -C "$tmp" etc | gzip -9n > $HOSTNAME.apkovl.tar.gz
