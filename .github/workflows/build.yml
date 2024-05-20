@@ -67,8 +67,12 @@ jobs:
       run: |
         ls -la ~/iso
 
+    - name: Rename iso
+      run: |
+        mv ~/iso/alpine-standard-edge-x86_64.iso ~/iso/esxi-passwordreset.iso
+
     - name: Upload artifact
-      uses: actions/upload-artifact@v2
+      uses: actions/upload-artifact@v4
       with:
         name: iso
         path: ~/iso/alpine-standard-edge-x86_64.iso
@@ -85,18 +89,6 @@ jobs:
         with:
           name: iso
           path: ./
-
-      - name: List files 1
-        run: |
-          ls -l
-
-      - name: Rename iso
-        run: |
-          mv alpine-standard-edge-x86_64.iso ./esxi-passwordreset.iso
-
-      - name: List files 2
-        run: |
-          ls -l
 
       - name: Create new release and upload iso
         env:
