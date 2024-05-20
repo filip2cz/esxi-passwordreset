@@ -1,38 +1,7 @@
 profile_standard() {
+	profile_abbrev="ext"
 	title="Standard"
 	desc="ISO for reseting VMware ESXi password easily"
-	profile_base
-	profile_abbrev="std"
-	image_ext="iso"
-	arch="aarch64 armv7 x86 x86_64 ppc64le riscv64 s390x loongarch64"
-	output_format="iso"
-	kernel_addons="xtables-addons"
-	case "$ARCH" in
-	s390x)
-		apks="$apks s390-tools"
-		initfs_features="$initfs_features dasd_mod qeth zfcp"
-		initfs_cmdline="modules=loop,squashfs,dasd_mod,qeth,zfcp quiet"
-		;;
-	ppc64le)
-		initfs_cmdline="modules=loop,squashfs,sd-mod,usb-storage,ibmvscsi quiet"
-		;;
-	riscv64)
-		kernel_flavors="edge"
-		kernel_cmdline="console=tty0 console=ttyS0,115200 console=ttySIF0,115200"
-		kernel_addons=
-		;;
-	esac
-	apks="$apks iw wpa_supplicant"
-}
-
-profile_extended() {
-	profile_standard
-	profile_abbrev="ext"
-	title="Extended"
-	desc="Most common used packages included.
-		Suitable for routers and servers.
-		Runs from RAM.
-		Includes AMD and Intel microcode updates."
 	arch="x86 x86_64"
 	kernel_addons="xtables-addons zfs"
 	boot_addons="amd-ucode intel-ucode"
@@ -68,22 +37,4 @@ profile_extended() {
 		done
 	done
 	apks="$apks linux-firmware linux-firmware-none"
-}
-
-profile_virt() {
-	profile_standard
-	profile_abbrev="virt"
-	title="Virtual"
-	desc="Similar to standard.
-		Slimmed down kernel.
-		Optimized for virtual systems."
-	arch="aarch64 armv7 x86 x86_64"
-	kernel_addons=
-	kernel_flavors="virt"
-	case "$ARCH" in
-		arm*|aarch64)
-			kernel_cmdline="console=tty0 console=ttyAMA0"
-			;;
-	esac
-	syslinux_serial="0 115200"
 }
