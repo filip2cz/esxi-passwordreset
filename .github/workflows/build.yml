@@ -92,7 +92,7 @@ jobs:
 
       - name: Rename iso
         run: |
-          mv alpine-standard-edge-x86_64.iso esxi-passwordreset.iso
+          cp /home/runner/work/esxi-passwordreset/esxi-passwordreset/alpine-standard-edge-x86_64.iso ./esxi-passwordreset.iso
 
       - name: List files 2
         run: |
