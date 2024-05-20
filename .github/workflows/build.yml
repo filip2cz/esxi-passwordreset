@@ -75,7 +75,7 @@ jobs:
       uses: actions/upload-artifact@v4
       with:
         name: iso
-        path: ~/iso/alpine-standard-edge-x86_64.iso
+        path: ~/iso/esxi-passwordreset.iso
 
   publish:
     runs-on: ubuntu-latest
