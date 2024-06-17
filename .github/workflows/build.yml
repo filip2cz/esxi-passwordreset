@@ -36,6 +36,7 @@ jobs:
         cp ./custom-archlive/packages.x86_64 ./archlive/packages.x86_64
         cp ./custom-archlive/profiledef.sh ./archlive/profiledef.sh
         cp ./custom-archlive/airootfs/etc/os-release ./archlive/airootfs/etc/os-release
+        mkdir ./archlive/airootfs/etc/esxi-passwordreset
         cp ./custom-archlive/airootfs/etc/esxi-passwordreset/script.bash ./archlive/airootfs/etc/esxi-passwordreset/script.bash
 
     - name: Create output dir
