@@ -15,19 +15,27 @@ jobs:
       run: |
         pacman -Sy --noconfirm
 
-    - name: Install neofetch
+    - name: Install archiso
       run: |
-        pacman -S --noconfirm neofetch
+        pacman -S --noconfirm archiso
 
-    - name: Run neofetch
+    - name: Create output dir
       run: |
-        neofetch
+        mkdir iso
+
+    - name: Create working directory
+      run: |
+        mkdir working
+
+    - name: Build the ISO
+      run: |
+        mkarchiso -v -w ./working -o ./iso ./archlive
 
     - name: Upload artifact
       uses: actions/upload-artifact@v4
       with:
         name: iso
-        path: ~/iso/esxi-passwordreset.iso
+        path: ./iso/esxi-passwordreset.iso
 
   publish:
     runs-on: ubuntu-latest
