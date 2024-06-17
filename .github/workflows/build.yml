@@ -39,6 +39,10 @@ jobs:
       run: |
         ls -la
 
+    - name: Give me all permissions please
+      run: |
+        chmod 777 -r ./archlive
+
     - name: Build the ISO
       run: |
         mkarchiso -v -w ./working -o ./iso ./archlive/
