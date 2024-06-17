@@ -13,11 +13,11 @@ jobs:
 
     - name: Update packages
       run: |
-        pacman -Sy
+        pacman -Sy --noconfirm
 
     - name: Install neofetch
       run: |
-        pacman -S neofetch
+        pacman -S --noconfirm neofetch
 
     - name: Run neofetch
       run: |
