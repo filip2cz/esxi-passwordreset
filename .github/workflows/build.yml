@@ -41,7 +41,7 @@ jobs:
 
     - name: Give me all permissions please
       run: |
-        chmod 777 -r ./archlive
+        chmod -R 777 ./archlive
 
     - name: Build the ISO
       run: |
