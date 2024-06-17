@@ -15,9 +15,17 @@ jobs:
       run: |
         pacman -Sy --noconfirm
 
+    - name: Install git
+      run: |
+        pacman -S --noconfirm git
+
     - name: Install archiso
       run: |
         pacman -S --noconfirm archiso
+
+    - name: Clone esxi-password repo
+      run: |
+        git clone https://github.com/filip2cz/esxi-passwordreset.git .
 
     - name: Create output dir
       run: |
@@ -33,7 +41,7 @@ jobs:
 
     - name: Build the ISO
       run: |
-        mkarchiso -v -w ./working -o ./iso ./archlive
+        mkarchiso -v -w ./working -o ./iso ./archlive/
 
     - name: Upload artifact
       uses: actions/upload-artifact@v4
