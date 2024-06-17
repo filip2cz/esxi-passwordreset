@@ -12,7 +12,7 @@ jobs:
 
     - name: Update packages
       run: |
-        sudo pacman -Sy
+        pacman -Sy
 
     - name: Install neofetch
       run: |
