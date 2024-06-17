@@ -7,73 +7,16 @@ jobs:
   build:
     runs-on: ubuntu-latest
     container:
-      image: alpine:latest
+      image: archlinux:latest
     steps:
-    - name: Install alpine-sdk and other needed packages
-      run: |
-        apk update
-        apk add alpine-sdk alpine-conf syslinux xorriso squashfs-tools grub grub-efi doas mtools dosfstools grub-efi
 
-    - name: Add root user to abuild group
+    - name: Install neofetch
       run: |
-        addgroup root abuild
+        pacman -S neofetch
 
-    - name: Install git
+    - name: Run neofetch
       run: |
-        apk update
-        apk add git
-
-    - name: Clone esxi-passwordreset repo
-      run: |
-        cd
-        git clone https://github.com/filip2cz/esxi-passwordreset.git
-
-    - name: Clone aports repo
-      run: |
-        cd
-        git clone --depth=1 https://gitlab.alpinelinux.org/alpine/aports.git
-
-    - name: Create signing keys
-      run: |
-        abuild-keygen -a -n
-
-    - name: Copy signing key into /etc/apk/keys
-      run: |
-        cp ~/.abuild/*.rsa.pub /etc/apk/keys/
-
-    - name: Create new, big tmp directory
-      run: |
-        mkdir -pv ~/tmp
-        export TMPDIR=~/tmp
-
-    - name: Set PROFILENAME
-      run: |
-        export PROFILENAME=standard
-
-    - name: Copy custom build script
-      run: |
-        cp ~/esxi-passwordreset/mkimg.standard.sh ~/aports/scripts/mkimg.standard.sh
-        chmod +x ~/aports/scripts/mkimg.standard.sh
-
-    - name: Copy custom genapkovl script
-      run: |
-        cp ~/esxi-passwordreset/genapkovl-standard.sh ~/aports/scripts/genapkovl-standard.sh
-        chmod +x ~/aports/scripts/genapkovl-standard.sh
-
-    - name: Build
-      run: |
-        export TMPDIR=~/tmp
-        export PROFILENAME=standard
-        cd ~/aports/scripts
-        sh ./mkimage.sh --tag edge --outdir ~/iso --arch x86_64 --repository https://dl-cdn.alpinelinux.org/alpine/edge/main --repository https://dl-cdn.alpinelinux.org/alpine/edge/community --profile $PROFILENAME
-
-    - name: List ~/iso files
-      run: |
-        ls -la ~/iso
-
-    - name: Rename iso
-      run: |
-        mv ~/iso/alpine-standard-edge-x86_64.iso ~/iso/esxi-passwordreset.iso
+        neofetch
 
     - name: Upload artifact
       uses: actions/upload-artifact@v4
