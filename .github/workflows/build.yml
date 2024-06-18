@@ -30,7 +30,7 @@ jobs:
 
     - name: Prepare a custom profile
       run: |
-        cp -r /usr/share/archiso/configs/releng/ archlive
+        cp -r /usr/share/archiso/configs/baseline/ archlive
 
     - name: Copy custom files into profile
       run: |
