@@ -54,7 +54,7 @@ jobs:
 
     - name: Reinstall device-mapper package
       run: |
-        sudo pacman -S device-mapper
+        pacman -S device-mapper
 
     - name: Build the ISO
       run: |
