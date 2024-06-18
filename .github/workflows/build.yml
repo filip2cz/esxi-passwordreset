@@ -64,7 +64,7 @@ jobs:
       uses: actions/upload-artifact@v4
       with:
         name: iso
-        path: ./iso/esxi-passwordreset.iso
+        path: ./iso/*.iso
 
   publish:
     runs-on: ubuntu-latest
@@ -83,4 +83,4 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          gh release create --draft tmp esxi-passwordreset.iso
+          gh release create --draft tmp *.iso
