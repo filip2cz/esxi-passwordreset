@@ -27,18 +27,6 @@ jobs:
       run: |
         git clone https://github.com/filip2cz/esxi-passwordreset.git .
 
-    - name: Prepare a custom profile
-      run: |
-        cp -r /usr/share/archiso/configs/baseline/ archlive
-
-    - name: Copy custom files into profile
-      run: |
-        cp ./custom-archlive/packages.x86_64 ./archlive/packages.x86_64
-        cp ./custom-archlive/profiledef.sh ./archlive/profiledef.sh
-        cp ./custom-archlive/airootfs/etc/os-release ./archlive/airootfs/etc/os-release
-        mkdir ./archlive/airootfs/etc/esxi-passwordreset
-        cp ./custom-archlive/airootfs/etc/esxi-passwordreset/script.bash ./archlive/airootfs/etc/esxi-passwordreset/script.bash
-
     - name: Create output dir
       run: |
         mkdir iso

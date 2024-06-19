@@ -10,3 +10,4 @@ pv
 qemu-guest-agent
 syslinux
 virtualbox-guest-utils-nox
+open-vm-tools
