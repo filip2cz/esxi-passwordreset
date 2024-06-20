@@ -1,0 +1,1 @@
+bash /opt/esxi-passwordreset/script.bash
